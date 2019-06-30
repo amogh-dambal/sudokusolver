@@ -14,7 +14,13 @@ public class Solver {
 	}
 	
 	public Solver(Grid grid) {
-		this.grid = grid;
+		try {
+			this.grid = grid;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			this.grid = new Grid();
+		}
 	}
 	
 	public Solver(String gridfile) {
@@ -46,21 +52,23 @@ public class Solver {
 			for (int j = 0; j < 9; j++) {
 				
 				if (this.grid.getGrid()[i][j] == 0) {
-					
 					for (int k = 1; k < 10; k++) {
+						
 						if (validate(i, j, k)) {
+							
 							this.grid.getGrid()[i][j] = k;
+							
 							if (solve()) {
 								return true;
 							}
 							else {
 								this.grid.getGrid()[i][j] = 0;
 							}
+							
 						}
+						
 					}
-					
 					return false;
-					
 				}
 				
 			}
@@ -110,6 +118,4 @@ public class Solver {
 	public Grid getGrid() {
 		return this.grid;
 	}
-	
-	
 }

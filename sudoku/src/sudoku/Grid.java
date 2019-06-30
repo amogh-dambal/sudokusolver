@@ -1,5 +1,6 @@
 package sudoku;
 
+import java.security.InvalidParameterException;
 import java.util.HashSet;
 
 public class Grid {
@@ -12,7 +13,7 @@ public class Grid {
 	
 	public Grid(Integer[][] grid) {
 		if (grid.length * grid[0].length != 81) {
-			// invalid array size
+			throw new InvalidParameterException("grid array size is incorrect!");
 		}
 		else {
 			this.setGrid(grid);
@@ -116,16 +117,4 @@ public class Grid {
 		
 		return out.toString();
 	}
-	
-	public boolean containsEmptySquare() {
-		for (Integer[] row : grid) {
-			for (int i : row) {
-				return i == 0;
-			}
-		}
-		return false;
-	}
-	
-	
-
 }
