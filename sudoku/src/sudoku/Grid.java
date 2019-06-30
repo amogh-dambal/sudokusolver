@@ -16,16 +16,21 @@ public class Grid {
 			throw new InvalidParameterException("grid array size is incorrect!");
 		}
 		else {
-			this.setGrid(grid);
+			this.grid = grid;
 		}
 	}
 	
 	// parameter string: 81 digits separated by commas
 	// 0 if empty, 1-9 for sudoku
 	public Grid(String grid) {
+		
+		if (grid == null) {
+			throw new NullPointerException("grid string is null!");
+		}
+		
 		String[] input = grid.split(",");
 		
-		this.setGrid(new Integer[9][9]);
+		this.grid = new Integer[9][9];
 		
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
