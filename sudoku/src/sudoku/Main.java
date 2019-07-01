@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-
+	
 	// launch solver with sudoku filename
 	// command line argument
 	public static void main(String[] args) {
@@ -35,7 +35,14 @@ public class Main {
 			return;
 		}
 		
+		// timing for logging purposes
+		long start = System.nanoTime();
 		s.solve();
+		long end = System.nanoTime();
+		
 		System.out.println(s.getGrid());
+
+		double runtime = ((end - start) / 1000000000.0);
+		System.out.println("Sudoku solved in: " + runtime + " seconds");
 	}
 }
