@@ -3,8 +3,11 @@ package sudoku;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.logging.Logger;
 
 public class Main {
+	
+	private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 	
 	// launch solver with sudoku filename
 	// command line argument
