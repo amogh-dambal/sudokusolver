@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
+
+// TODO: add javafx features
+// TODO: logging
 public class Main {
 	
 	private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
